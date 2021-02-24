@@ -16,7 +16,7 @@ public class RemoveElement {
         System.out.print(" ]");
     }
 
-    public static void main(String[] args) {
+    public static int remove1(int[] nums,int var) {
         int finalArrayLength=0;
         int matchingElement=0;
         for(int i=0;i<nums.length;i++)
