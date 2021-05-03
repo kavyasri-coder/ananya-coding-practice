@@ -1,9 +1,8 @@
-package in.kavyasri.simple_interpreter.service;
-
-import in.kavyasri.simple_interpreter.model.Token;
-import in.kavyasri.simple_interpreter.model.TokenType;
-
+package in.kavyasri.simple_interpreter_part_two.service;
+import in.kavyasri.simple_interpreter_part_two.model.Token;
+import in.kavyasri.simple_interpreter_part_two.model.TokenType;
 public class LexicalAnalyzer {
+
     private String input;
     private int currentIndex = 0;
 
@@ -15,7 +14,7 @@ public class LexicalAnalyzer {
         Token currentToken = null;
 
         /*
-        9+2 -> input.length => 3
+        9+2 -> input.lenght => 3
         0,1,2 -> indexes
          */
         if(currentIndex == input.length() ){
@@ -33,3 +32,6 @@ public class LexicalAnalyzer {
         return currentToken;
     }
 }
+
+
+
