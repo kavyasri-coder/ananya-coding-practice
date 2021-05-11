@@ -46,14 +46,21 @@ public class Expr {
     }
 
     public int evaluate(String input) {
-        Token[] tokens = new Token[5];
+        if(input==null)
+        {
+            throw new IllegalArgumentException("Null value not allowed");
+        }
+        if(input.length()==0) {
+            throw new IllegalArgumentException("Empty String not allowed");
+        }
+        Token[] tokens = new Token[3];
         /*
         structure of the language ->
         integer+integer and the integer are single digit
          */
         LexicalAnalyzer analyzer = new LexicalAnalyzer(input);
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 3; i++) {
             tokens[i] = analyzer.getNextToken(); // tokens[0] -> left // tokens[1] -> middle //tokens[2] -> right
 
             if (!validate(tokens[i], this.structure.get(i))) { //this.structure.get(0) -> o/p -> TokenType.INTEGER
@@ -70,6 +77,9 @@ public class Expr {
             case MULTIPLICATION:
                 return (Integer.parseInt(tokens[0].getValue()) * Integer.parseInt(tokens[2].getValue()));
             case DIVISION:
+            if (tokens[2].getValue().equals("0")) {
+                throw new IllegalArgumentException("The input is invalid : Valid is : <int>/<int> where second <int> should be greater than 0");
+            }
                 return (Integer.parseInt(tokens[0].getValue()) / Integer.parseInt(tokens[2].getValue()));
 
 

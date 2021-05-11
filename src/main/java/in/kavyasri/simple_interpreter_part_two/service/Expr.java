@@ -61,7 +61,8 @@ public class Expr {
             tokens[i] = analyzer.getNextToken(); // tokens[0] -> left // tokens[1] -> middle //tokens[2] -> right
             //System.out.println("Hey");
             if (!validate(tokens[i], this.structure.get(i))) { //this.structure.get(0) -> o/p -> TokenType.INTEGER
-                throw new IllegalArgumentException("The input is invalid : Valid is : <int>+<int> where <int> should be single digit");
+                throw new IllegalArgumentException("The input is invalid : Valid is : <int>operators<int> where <int> can be any digit" +
+                        "and allowed operators are [+,-,*,/]");
             }
         }
         //Integer.parseInt("10") -> int 10
